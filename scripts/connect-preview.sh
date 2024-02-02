@@ -1,0 +1,1 @@
+ssh ${PREVIEW_USER}@${PREVIEW_HOST}

@@ -1,0 +1,17 @@
+version: '3.1'
+
+name: generic-development
+
+services:
+  app: 
+    image: curtisgrjones/generic-development-app:latest
+    ports:
+      - 3000:3000
+    env_file:
+      - ../../env/.env
+      - ../../env/.env.docker.development
+
+  nginx: 
+    image: curtisgrjones/generic-development-nginx:latest
+    ports:
+      - 80:80

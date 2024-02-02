@@ -1,0 +1,25 @@
+version: '3.1'
+
+name: generic-production
+
+services:
+  app: 
+    image: curtisgrjones/generic-production-app:latest
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    env_file:
+      - ./.env
+      - ./.env.production
+
+  nginx: 
+    image: curtisgrjones/generic-production-nginx:latest
+    restart: unless-stopped
+    ports:
+      - 80:80
+
+  redis:
+    image: 'redislabs/redismod'
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
